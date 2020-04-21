@@ -20,11 +20,10 @@ for filename in fnames:
 	print(foldername)
 	cap = cv2.VideoCapture(filename)
 	count = 0
-	while(True):
+	while(cap.isOpened()):
 	    ret,frame = cap.read()
 	    if ret:
-	        if (count % 10) == 0:
-	            cv2.imwrite(outpath+"/"+foldername+"_"+"0"*(3-len(str(count)))+str(count)+".jpg",frame)
+	        cv2.imwrite(outpath+"/"+foldername+"_"+"0"*(3-len(str(count)))+str(count)+".jpg",frame)
 	        count+=1
 	    else:
 	        break
