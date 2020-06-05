@@ -9,11 +9,12 @@ def generate_yolo_label(x,y,width,height,img_h,img_w):
 	center = get_center(x,y,width,height)
 	return (center[0]/img_w,center[1]/img_h,width/img_w,height/img_h)
 
-labels_masterlist_fname = 'label_masterlist'
-images_folder_dir = '../frames/DATASET_FIXED/images/'
-labels_folder_dir = '../frames/DATASET_FIXED/labels/'
-cropped_folder_dir = '../frames/DATASET_FIXED/cropped_images_gt/'
-master_imgs_dir = '../frames/'
+labels_masterlist_fname = 'label_masterlist_youtube'
+# labels_masterlist_fname = 'label_masterlist_youtube_japanesemacaques'
+images_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/images/'
+labels_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/labels/'
+cropped_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/cropped_images_gt/'
+master_imgs_dir = '../frames/YOUTUBE/'
 labels_master = []
 
 with open(labels_masterlist_fname) as labels_master:

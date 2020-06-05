@@ -1,0 +1,22 @@
+1. combine_labels.py
+Run on raw labels to clean labels 
+OUTPUT: labels_masterlist
+
+
+2. prepare_dataset_for_yolo_training.py
+adjust paths
+labels_masterlist_fname = 'label_masterlist'
+images_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/images/'
+labels_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/labels/'
+cropped_folder_dir = '../frames/YOUTUBE_DATASET_FIXED/cropped_images_gt/'
+master_imgs_dir = '../frames/YOUTUBE/'
+
+a. create the necessary folders
+b. check label_masterlist is there are bad names and illegal keywords
+c. run script
+
+OUTPUT: 
+label.txt files in labels/
+images.jpg in images/
+cropped ground truths in cropped_images_gt
+

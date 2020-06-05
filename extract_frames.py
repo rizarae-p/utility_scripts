@@ -7,13 +7,13 @@ import glob
 import os
 
 
-vidext = ["wmv","mp4","avi","mov"]
-vidextid = 0
-fnames = glob.glob("../raw_data/*."+vidext[vidextid])
-output_dest = "../frames/"
+vidext = ["wmv","mp4","avi","mov","mkv"]
+vidextid = 1
+fnames = glob.glob("../youtube/*."+vidext[vidextid])
+output_dest = "../frames/YOUTUBE/"
 for filename in fnames:
 	filename = filename.strip()
-	foldername = filename.split("/")[-1].replace(".wmv","")
+	foldername = filename.split("/")[-1].replace("."+vidext[vidextid],"")
 	outpath = output_dest+foldername
 	if not(os.path.exists(outpath)):
 	    os.mkdir(outpath)
@@ -23,8 +23,9 @@ for filename in fnames:
 	while(cap.isOpened()):
 	    ret,frame = cap.read()
 	    if ret:
-	        cv2.imwrite(outpath+"/"+foldername+"_"+"0"*(3-len(str(count)))+str(count)+".jpg",frame)
-	        count+=1
+	    	if ((count%30)==0):
+	        	cv2.imwrite(outpath+"/"+foldername+"_"+"0"*(3-len(str(count)))+str(count)+".jpg",frame)
+	    	count+=1
 	    else:
 	        break
 	cap.release()
